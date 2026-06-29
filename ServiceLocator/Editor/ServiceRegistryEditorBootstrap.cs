@@ -17,7 +17,7 @@ namespace CupkekGames.Services.Editor
 
     public static bool AutoRegisterOnEditorLoad
     {
-      get => EditorPrefs.GetBool(AutoRegisterOnEditorLoadKey, false);
+      get => EditorPrefs.GetBool(AutoRegisterOnEditorLoadKey, true);
       set => EditorPrefs.SetBool(AutoRegisterOnEditorLoadKey, value);
     }
 
