@@ -16,8 +16,8 @@
     "CupkekGames"
   ],
   "dependencies": {
-    "com.cupkekgames.assetfinder": "0.1.2",
-    "com.cupkekgames.editorui": "0.1.0",
+    "com.cupkekgames.assetfinder": "0.1.3",
+    "com.cupkekgames.editorui": "0.1.1",
     "com.cupkekgames.editorinspector": "0.1.0"
   }
 }
