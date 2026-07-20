@@ -96,10 +96,14 @@ namespace CupkekGames.Services.Editor
 
     /// <summary>
     /// Called from <see cref="ServiceRegistrySOEditor"/> when automatic editor bootstrap is enabled.
+    /// Edit-mode only: the retrigger path starts with UnregisterAll on every registry, which must
+    /// never run against a live play session's registrations.
     /// </summary>
     public static void RegisterEditorServicesAutomatic()
     {
       if (!AutoRegisterOnEditorLoad)
+        return;
+      if (EditorApplication.isPlayingOrWillChangePlaymode)
         return;
       RetriggerEditorRegistrationsAll();
     }

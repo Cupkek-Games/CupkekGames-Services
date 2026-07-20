@@ -50,6 +50,13 @@ namespace CupkekGames.Services.Editor
 
     private static void RegisterEditorServices()
     {
+      // With Domain Reload enabled, entering Play re-runs this class's [InitializeOnLoad] static
+      // ctor INSIDE play mode, and the queued delayCall would land right after scene Awake --
+      // RetriggerEditorRegistrationsAll's UnregisterAll would then strip every runtime-registered
+      // SO service one frame after the boot sequence registered them. Editor bootstrap is
+      // edit-mode-only (same guard as EditorAutoCatalogHost).
+      if (EditorApplication.isPlayingOrWillChangePlaymode)
+        return;
       ServiceRegistryEditorBootstrap.RegisterEditorServicesAutomatic();
     }
 
